@@ -1,0 +1,11 @@
+name: 'Clojure deps build cache'
+description: 'Cache Maven (m2) dependencies for clojure projects'
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/cache@v2
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-

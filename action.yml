@@ -3,7 +3,8 @@ description: 'Cache Maven (m2) dependencies for clojure projects'
 runs:
   using: "composite"
   steps:
-    - using: actions/cache@v2
+    - run: echo Using m2 cache
+      using: actions/cache@v2
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}

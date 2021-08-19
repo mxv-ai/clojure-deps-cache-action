@@ -3,9 +3,7 @@ description: 'Cache Maven (m2) dependencies for clojure projects'
 runs:
   using: "composite"
   steps:
-    - shell: bash
-      name: 'Cache local Maven repository'
-      using: actions/cache@v2
+    - using: actions/cache@v2
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
